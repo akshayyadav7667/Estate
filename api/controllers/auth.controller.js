@@ -1,11 +1,12 @@
 import bcrypt from "bcrypt";
-import prisma from "../lib/prisma.js"; // <-- apne path ke hisaab se
+import prisma from "../lib/prisma.js";
+import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
-    // Check if user already exists
+    // Check if user already exists....
     const existingUser = await prisma.user.findUnique({
       where: { email },
     });
@@ -61,9 +62,18 @@ export const login = async (req, res) => {
     // console.log(hashpassword);
 
     const age = 1000 * 60 * 60 * 24 * 7;
+    // console.log(user);
+
+    const token = jwt.sign(
+      {
+        id: user.id,
+      },
+      process.env.JWT_SECRET_KEY,
+      { expiresIn: age }
+    );
 
     res
-      .cookie("test", "myvalue", {
+      .cookie("token", token, {
         httpOnly: true,
         maxAge: age,
       })
@@ -74,5 +84,17 @@ export const login = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Falied to login !" });
+  }
+};
+
+export const logout = (req, res) => {
+  try {
+    res
+      .clearCookie("token")
+      .status(200)
+      .json({ message: "Logout successFully " });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Falid to LogOut !!" });
   }
 };

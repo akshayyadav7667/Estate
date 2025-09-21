@@ -1,0 +1,83 @@
+@import "../../responsive.scss";
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+
+  a {
+    transition: all 0.4s ease;
+
+    @include sm {
+      display: none;
+    }
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+
+  .left {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    // background-color: burlywood;
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      img {
+        width: 28px;
+      }
+
+      span {
+        @include md {
+          display: none;
+        }
+        @include sm {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #fcf5f3;
+    height: 100%;
+    position: relative;
+
+    a {
+      padding: 12px 24px;
+      margin: 20px;
+    }
+    // background-color: rebeccapurple;
+
+    .register {
+      background-color: #fece51;
+    }
+    .menuIcon {
+      //   display: inline;
+      background-color: red;
+    }
+
+    .menu {
+      position: absolute;
+      background-color: black;
+      color: white;
+      height: 100vh;
+      top: 0;
+      right: 50%;
+      width: 50%;
+    }
+  }
+}
