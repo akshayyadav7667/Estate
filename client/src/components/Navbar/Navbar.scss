@@ -1,83 +1,137 @@
-@import "../../responsive.scss";
+@use "../../responsive" as *;
 
-nav {
+nav{
   display: flex;
-  justify-content: space-between;
   height: 100px;
+  justify-content: space-between;
+  // background-color: red;
   align-items: center;
+  // position: relative;
 
-  a {
+  a{
     transition: all 0.4s ease;
 
-    @include sm {
+    @include sm{
       display: none;
     }
 
-    &:hover {
+    &:hover{
       scale: 1.05;
     }
   }
 
-  .left {
-    flex: 3;
+
+
+  .left{
+    flex:3;
     display: flex;
     align-items: center;
     gap: 50px;
+    // background-color: yellow;
 
-    // background-color: burlywood;
-    .logo {
+    .links{
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      // background-color: red;
+    }
+
+    .logo{
+      display: flex;
       font-weight: bold;
       font-size: 20px;
-      display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 20px;
 
-      img {
-        width: 28px;
+     
+      img{
+        width: 38px;
+        // background-color: red;
+        // padding: 20px;
       }
 
-      span {
-        @include md {
+      span{
+
+        margin-top: 15px;
+        @include md{
           display: none;
         }
-        @include sm {
+
+        @include sm{
           display: block;
+         
         }
       }
     }
   }
 
-  .right {
+  .right{
     flex: 2;
+    background-color: #fcf5f3;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: #fcf5f3;
     height: 100%;
-    position: relative;
+    // position: relative;
+    // background-color: red;
 
-    a {
-      padding: 12px 24px;
-      margin: 20px;
+    @include md{
+      background: transparent;
     }
-    // background-color: rebeccapurple;
 
-    .register {
+    a{
+      padding: 12px 24px;
+    }
+
+
+    .register{
       background-color: #fece51;
     }
-    .menuIcon {
-      //   display: inline;
-      background-color: red;
+
+    .menuIcon{
+      display: none;
+      z-index: 999;
+
+      img{
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+      }
+
+      @include sm{
+        display: inline;
+
+      }
     }
 
-    .menu {
+
+    .menu{
       position: absolute;
       background-color: black;
       color: white;
-      height: 100vh;
-      top: 0;
-      right: 50%;
       width: 50%;
+      top: 0;
+      right: -50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-size: 22px;
+      transition: all 1s ease;
+
+      &.active{
+        right: 0;
+      }
+
+      @include sm{
+        a{
+          display: initial;
+        }
+      }
     }
+
+
+
   }
 }
