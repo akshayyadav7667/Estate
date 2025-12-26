@@ -4,13 +4,34 @@
 
   .textContainer {
     flex: 3;
-    background-color: green;
+    // background-color: green;
 
     .wrapper {
       padding-right: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 50px;
+    //   background-color: red;
+      height: 100%;
 
-      h1 {
-        background-color: red;
+
+      .title {
+        font-size: 64px;
+        // background-color: red;
+      }
+
+      .boxes{
+        display: flex;
+        justify-content: space-between;
+
+        h1{
+            font-size: 36px;
+        }
+        h2{
+            font-size: 20px;
+            font-weight: 300;
+        }
       }
     }
   }
