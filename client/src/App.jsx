@@ -6,8 +6,12 @@ import Homepage from "./routes/Homepage/Homepage";
 export default function App() {
   return (
     <div className="layout">
-      <Navbar />
-      <Homepage/>
+      <div className="navbar">
+        <Navbar />
+      </div>
+      <div className="content">
+        <Homepage />
+      </div>
     </div>
   );
 }
