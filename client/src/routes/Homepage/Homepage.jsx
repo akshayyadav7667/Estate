@@ -8,7 +8,7 @@ export default function Homepage() {
   return (
     <div className="homePage">
       <div className="textContainer">
-        <din className="wrapper">
+        <div className="wrapper">
           <h1 className="title">Find Real Estate & Get Your Dream Place </h1>
           <p>
             Real estate refers to land, buildings, and property used for living,
@@ -32,7 +32,7 @@ export default function Homepage() {
               <h2>Property Ready </h2>
             </div>
           </div>
-        </din>
+        </div>
       </div>
 
       <div className="imgContainer">
