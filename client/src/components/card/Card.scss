@@ -1,0 +1,82 @@
+.card{
+    display: flex;
+    gap: 20px;
+
+    .imageContainer{
+        flex: 2;
+        height: 200px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+
+    .textContainer{
+        flex: 3;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        img{
+            width: 16px;
+            height: 16px;
+        }
+
+        .title{
+            font-size: 20px;
+            font-weight: 600;
+            color: #444;
+            transition: all 0.4s ease;
+
+            &:hover{
+                color: #000;
+                scale: 1.01;;
+            }
+        }
+
+        .address{
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #888;
+        }
+
+        .price{
+            font-size: 20px;
+            font-weight:300;
+            background-color: rgba(254,205,81,0.438);
+            max-width: max-content;
+            padding: 5px;
+            border-radius: 5px;
+            color: #090909;
+        }
+
+        .button{
+            display: flex;
+            justify-content: space-between;
+
+            .features{
+                display: flex;
+                gap: 40px;
+                // justify-content: space-between;
+
+                .feature{
+                    display:flex;
+                    gap: 10px;
+                }
+            }
+
+            .icons{
+                display: flex;
+                gap: 20px;
+            }
+        }
+    }
+
+    
+}
