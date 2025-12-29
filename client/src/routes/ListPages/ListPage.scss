@@ -6,14 +6,16 @@
         flex: 3;
 
         .wrapper{
+            height: 100%;
             // background: #000;
             padding-right: 50px;
             // margin-right: 20px;
             // padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 40px;
             overflow-y: scroll;
+            padding-bottom: 50px;
             // background-color: red;
 
         }

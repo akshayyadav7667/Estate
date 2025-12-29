@@ -1,6 +1,7 @@
 .card{
     display: flex;
     gap: 20px;
+    // background-color: yellow;
 
     .imageContainer{
         flex: 2;
@@ -16,6 +17,8 @@
 
     .textContainer{
         flex: 3;
+        // background-color: red;
+        padding:10px 5px;
 
         display: flex;
         flex-direction: column;
@@ -59,21 +62,40 @@
         .button{
             display: flex;
             justify-content: space-between;
+            gap: 10px;
 
             .features{
                 display: flex;
-                gap: 40px;
+                gap: 20px;
+                font-size: 14px;
                 // justify-content: space-between;
 
                 .feature{
                     display:flex;
                     gap: 10px;
+                    background-color: whitesmoke;
+                    padding: 5px;
+                    border-radius: 5px;
+
                 }
             }
 
             .icons{
                 display: flex;
                 gap: 20px;
+
+                .icon{
+                    border: 1px solid #999;
+                    padding: 2px 5px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &:hover{
+                        background-color: lightgray;
+                    }
+                }
             }
         }
     }
