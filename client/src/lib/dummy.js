@@ -288,7 +288,7 @@ export const singlePostData = {
 export const userData = {
   id: "1",
   name: "Yusuf Koroglu",
-  img: "https://media.licdn.com/dms/image/v2/D4D35AQGmT4FP6dxzFQ/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1669987952817?e=1729177200&v=beta&t=jtmrCe8dR50Se34FYr1jTPEHMT9sVANivUeiXsJ52fM",
+  img: "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 };
 
 export default listData;
