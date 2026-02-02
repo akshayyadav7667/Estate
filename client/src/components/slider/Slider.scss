@@ -1,3 +1,6 @@
+@use "../../responsive" as *;
+
+
 .slider {
   display: flex;
   width: 100%;
@@ -14,6 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 99999;
 
     .close{
         position: absolute;
@@ -37,6 +41,12 @@
 
         &.right {
           transform: rotate(180deg);
+        }
+      }
+
+      @include sm{
+        img{
+          width: 16px;
         }
       }
     }
