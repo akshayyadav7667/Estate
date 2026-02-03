@@ -9,6 +9,7 @@ import Homepage from "./routes/Homepage/Homepage";
 import ListPage from "./routes/ListPages/ListPage";
 import Layout from "./routes/layout/Layout";
 import SinglePage from "./routes/singlePage/SinglePage";
+import ProfilePage from "./routes/profilePage/ProfilePage";
 
 export default function App() {
 
@@ -28,6 +29,10 @@ export default function App() {
         {
           path:"/:id",
           element:<SinglePage/>
+        },
+        {
+          path:"/profile",
+          element:<ProfilePage/>
         }
       ]
     }

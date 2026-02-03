@@ -1,3 +1,6 @@
+@use "../../responsive" as *;
+
+
 .card{
     display: flex;
     gap: 20px;
@@ -6,6 +9,10 @@
     .imageContainer{
         flex: 2;
         height: 200px;
+
+        @include sm{
+            display: none;
+        }
 
         img{
             width: 100%;
