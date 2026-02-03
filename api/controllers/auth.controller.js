@@ -29,7 +29,6 @@ export const register = async (req, res) => {
 
     // console.log(newUser);
 
-    
     res.status(201).json({
       id: newUser.id,
       username: newUser.username,
@@ -53,12 +52,18 @@ export const login = async (req, res) => {
 
     // console.log(user);
 
+    // console.log(username, password);
+
     if (!user) {
       res.status(400).json({ message: "Invalid Credentials !!" });
     }
 
-    const hashpassword = await bcrypt.compare(password, user.password);
-    // console.log(hashpassword);
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    // console.log(isPasswordValid);
+
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: "Invalid Credentails" });
+    }
 
     const age = 1000 * 60 * 60 * 24 * 7;
     // console.log(user);
@@ -68,8 +73,11 @@ export const login = async (req, res) => {
         id: user.id,
       },
       process.env.JWT_SECRET_KEY,
-      { expiresIn: age }
+      { expiresIn: age },
     );
+
+
+    const {password:userPassword,...userInfo}= user
 
     res
       .cookie("token", token, {
@@ -77,7 +85,7 @@ export const login = async (req, res) => {
         maxAge: age,
       })
       .status(200)
-      .json({ username, hashpassword });
+      .json(userInfo);
 
     // res.status(200).json({ username, password });
   } catch (error) {
