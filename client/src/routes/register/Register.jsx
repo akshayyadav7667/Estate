@@ -2,8 +2,9 @@ import React from "react";
 import "./Register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import bg from "../../assets/bg.png";
-import axios from "axios";
+// import axios from "axios";
 import { useState } from "react";
+import apiRequest from "../../lib/apiRequest";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -20,8 +21,7 @@ export default function Register() {
     console.log(username, email, password);
 
     try {
-      const response = await axios.post(
-        "http://localhost:8000/api/auth/register",
+      const response = await apiRequest.post("/auth/register",
         {
           username,
           email,
