@@ -27,9 +27,9 @@ export const register = async (req, res) => {
       },
     });
 
-    console.log(newUser);
+    // console.log(newUser);
 
-    // Return response (without password)
+    
     res.status(201).json({
       id: newUser.id,
       username: newUser.username,
@@ -38,7 +38,6 @@ export const register = async (req, res) => {
       createdAt: newUser.createdAt,
     });
   } catch (error) {
-    console.error("Register Error:", error);
     res.status(500).json({ message: "Something went wrong" });
   }
 };

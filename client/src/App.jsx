@@ -10,6 +10,8 @@ import ListPage from "./routes/ListPages/ListPage";
 import Layout from "./routes/layout/Layout";
 import SinglePage from "./routes/singlePage/SinglePage";
 import ProfilePage from "./routes/profilePage/ProfilePage";
+import Register from "./routes/register/Register";
+import Login from "./routes/login/Login";
 
 export default function App() {
 
@@ -33,6 +35,14 @@ export default function App() {
         {
           path:"/profile",
           element:<ProfilePage/>
+        },
+        {
+          path:"/register",
+          element:<Register/>
+        },
+        {
+          path:"/login",
+          element: <Login/>
         }
       ]
     }
