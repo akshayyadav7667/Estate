@@ -6,10 +6,15 @@ import bg from "../../assets/bg.png";
 import "./Login.scss";
 import axios from "axios";
 import apiRequest from "../../lib/apiRequest";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Login() {
   const [error, setError] = useState();
   const [IsLoading,setIsLoading]= useState(false);
+  const navigate= useNavigate();
+
+  const {updateUser}= useContext(AuthContext)
 
 
 
@@ -34,9 +39,16 @@ export default function Login() {
       );
 
 
-      localStorage.setItem("user",JSON.stringify(response.data))
+      // localStorage.setItem("user",JSON.stringify(response.data))
 
-      console.log(response)
+      updateUser(response.data);
+
+      navigate("/")
+
+
+
+      // console.log(response)
+      
 
     } catch (error) {
       setError(error.response.data.message)
@@ -48,7 +60,7 @@ export default function Login() {
     <div className="login">
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
-          <h1>Create an Account</h1>
+          <h1>Login Account</h1>
           <input name="username" type="text" placeholder="Username" />
           <input name="password" type="password" required placeholder="Password" />
           <button disabled={IsLoading} >Login</button>

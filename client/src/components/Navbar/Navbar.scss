@@ -81,6 +81,7 @@ nav{
 
     a{
       padding: 12px 24px;
+      cursor: pointer;
     }
 
     .user{
@@ -109,7 +110,7 @@ nav{
         background-color: #fece51;
         border: none;
         cursor: pointer;
-        margin-right: 10px;
+        // margin-right: 10px;
         position: relative;
 
         .notification{
@@ -133,6 +134,9 @@ nav{
 
     .register{
       background-color: #fece51;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .menuIcon{

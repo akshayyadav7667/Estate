@@ -3,8 +3,14 @@ import React from "react";
 import "./Homepage.scss";
 import bg from "../../assets/bg.png";
 import SearchBar from "../../components/searchBar/SearchBar";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Homepage() {
+  const { currentUser } = useContext(AuthContext);
+
+  // console.log(currentUser)
+
   return (
     <div className="homePage">
       <div className="textContainer">

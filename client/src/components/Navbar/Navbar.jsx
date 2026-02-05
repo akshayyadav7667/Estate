@@ -3,12 +3,22 @@ import "./Navbar.scss";
 import logo from "../../assets/logo.png";
 import menuIcon from "../../assets/menu.png";
 import profile from "../../assets/profile.jpg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const user = true;
+  // const user = true;
+  const {currentUser}= useContext(AuthContext);
+
+  // console.log(currentUser)
+
+  const handleClick=()=>{
+    console.log("clicked")
+  }
+
 
   return (
     <nav>
@@ -28,19 +38,19 @@ export default function Navbar() {
       </div>
 
       <div className="right">
-        {user ? (
+        {currentUser ? (
           <div className="user">
-            <img src={profile} />
-            <span>Akshay kumar</span>
-            <Link to="/profile" className="profile">
+            <img src={ currentUser.avatar ||  profile} />
+            <span>{currentUser.username}</span>
+            <Link to="/profile" onClick={handleClick} className="profile">
               <div className="notification">3</div>
               <span>Profile</span>
             </Link>
           </div>
         ) : (
           <>
-            <a href="/">Sign In</a>
-            <a href="/" className="register">
+            <a href="/login">Sign In</a>
+            <a href="/register" className="register">
               Sign Up
             </a>
           </>
@@ -57,8 +67,8 @@ export default function Navbar() {
           <a href="/">About</a>
           <a href="/">Contact</a>
           <a href="/">Agents</a>
-          <a href="/">Sign In</a>
-          <a href="/">Sign Up</a>
+          <a href="/login">Sign In</a>
+          <a href="/register">Sign Up</a>
         </div>
       </div>
     </nav>
