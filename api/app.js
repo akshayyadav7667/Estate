@@ -3,6 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.route.js";
 import testRouter from './routes/test.route.js'
+import userRoutes from './routes/user.route.js'
 const app = express();
 const PORT = 8000;
 
@@ -13,6 +14,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRouter);
 app.use("/api/test",testRouter)
+app.use("/api/users",userRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server is listing on port ${PORT}`);
