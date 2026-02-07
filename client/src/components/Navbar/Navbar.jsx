@@ -31,9 +31,9 @@ export default function Navbar() {
         {/* Desktop links */}
         <div className="links">
           <a href="/">Home</a>
-          <a href="/">About</a>
-          <a href="/">Contact</a>
-          <a href="/">Agents</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/agents">Agents</a>
         </div>
       </div>
 

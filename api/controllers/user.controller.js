@@ -52,7 +52,7 @@ export const updateUser = async (req, res) => {
       },
     });
 
-    const {password:updatedPassword, ...rest}= updateUser
+    const {password:updatePassword, ...rest}= updateUser
 
     return res.status(201).json(rest);
   } catch (error) {

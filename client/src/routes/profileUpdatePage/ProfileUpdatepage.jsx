@@ -3,19 +3,23 @@ import { useContext } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import bg from "../../assets/bg.png";
+// import bg from "../../assets/bg.png";
+import avatarBg from "../../assets/avatar.png";
 import "./profileUpdatePage.scss";
 import apiRequest from "../../lib/apiRequest";
+import Upload from "../../components/uploadWidget/Upload";
 // import { userData } from "../../lib/dummy";
 
 export default function ProfileUpdatepage() {
-  const [error, setError] = useState();
-  const [IsLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
-
   const { updateUser, currentUser } = useContext(AuthContext);
 
-  console.log(currentUser);
+  const [error, setError] = useState();
+  const [IsLoading, setIsLoading] = useState(false);
+  const [avatar, setAvatar] = useState(currentUser.avatar);
+
+  const navigate = useNavigate();
+
+  // console.log(currentUser);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +29,7 @@ export default function ProfileUpdatepage() {
     const username = formData.get("username");
     const email = formData.get("email");
     const password = formData.get("password");
+    // const avatar= formData.get("")
 
     // const {username,email,password}= Object.fromEntries(FormData)
 
@@ -33,12 +38,13 @@ export default function ProfileUpdatepage() {
         username,
         email,
         password,
+        avatar,
       });
 
-    //   console.log(response.data)
+      //   console.log(response.data)
 
-      updateUser(response.data)
-      navigate('/profile')
+      updateUser(response.data);
+      navigate("/profile");
     } catch (error) {
       console.log(error);
       setError(error.response.data.message);
@@ -64,19 +70,24 @@ export default function ProfileUpdatepage() {
             placeholder="Email"
             defaultValue={currentUser.email}
           />
-          <input
-            name="password"
-            type="password"
-            
-            placeholder="Password"
-          />
+          <input name="password" type="password" placeholder="Password" />
           <button disabled={IsLoading}>Update</button>
           {error && <span className="error">{error}</span>}
           {/* <Link className="link">{"Don't"} you have an account ?</Link> */}
         </form>
       </div>
       <div className="imgContainer">
-        <img src={currentUser.avatar || bg} />
+        <img src={avatar || avatarBg} />
+        <Upload
+          uwConfig={{
+            cloudName: "ddaufd3kl",
+            uploadPreset: "estate",
+            multiple: false,
+            maxImageFileSize: 2000000,
+            folder: "Avatar",
+          }}
+          setAvatar={setAvatar}
+        />
       </div>
     </div>
   );

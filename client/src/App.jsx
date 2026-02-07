@@ -10,6 +10,7 @@ import ProfilePage from "./routes/profilePage/ProfilePage";
 import Register from "./routes/register/Register";
 import Login from "./routes/login/Login";
 import ProfileUpdatepage from "./routes/profileUpdatePage/ProfileUpdatepage";
+import About from "./routes/About/About";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -20,6 +21,10 @@ export default function App() {
         {
           path: "/",
           element: <Homepage />,
+        },
+        {
+          path:"/about",
+          element:<About/>
         },
         {
           path: "/list",

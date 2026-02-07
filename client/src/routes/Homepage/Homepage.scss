@@ -2,7 +2,7 @@
 
 .homePage {
   display: flex;
-  height: 100%;
+  height: 90vh;
 
   .textContainer {
     flex: 3;
@@ -70,18 +70,23 @@
     position: relative;
     display: flex;
     align-items: center;
+    // height: 100%;
+    // background-color: red;
+    // top: 20px;
+    // margin-top: 20px;
 
     @include md {
       display: none;
     }
 
     img {
-      width: 115%;
+      width: 105%;
       position: absolute;
       right: 0;
+      // top: 10;
 
       @include lg {
-        width: 105%;
+        width: 115%;
       }
     }
   }

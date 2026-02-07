@@ -5,6 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import "./Layout.scss";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import Footer from "../Footer/Footer";
 
  function Layout() {
   return (
@@ -15,6 +16,7 @@ import { AuthContext } from "../../context/AuthContext";
       <div className="content">
         <Outlet />
       </div>
+      <Footer/>
     </div>
   );
 }

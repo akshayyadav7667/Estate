@@ -1,52 +1,58 @@
 @use "../../responsive.scss" as *;
 
+.updateProfile {
+  display: flex;
+  height: 100vh;
 
-
-.updateProfile{
+  @include sm {
     display: flex;
-    height: 100vh;
+    flex-direction: column;
+  }
 
-    @include sm{
-        display: flex;
-        flex-direction: column;
+  .formContainer {
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      input {
+        padding: 10px;
+      }
+
+      button {
+        // color: white;
+        background-color: rgb(47, 224, 177);
+        padding: 10px;
+        border: 0;
+      }
     }
+  }
 
+  .imgContainer {
+    flex: 2;
+    background-color: #fcf5f3;
 
-    .formContainer{
-        display: flex;
-        flex: 3;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
+    img {
+      //   width: 100%;
+      object-fit: cover;
+      width: 230px;
 
-        form{
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-
-            input{
-                padding: 10px;
-                
-            }
-
-            button{
-                // color: white;
-                background-color: rgb(47, 224, 177);
-                padding: 10px;
-                border: 0;
-
-            }
-        }
-
+      // height: 100%;
     }
-
-    .imgContainer{
-        flex: 2;
-
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
+    // .imgContainer:nth-last-child(1) {
+    //   padding: 10px;
+    // }
+  }
 }
